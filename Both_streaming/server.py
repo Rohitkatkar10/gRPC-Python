@@ -1,7 +1,6 @@
 # crating server file here
 import random
 from concurrent import futures
-import time
 
 import grpc
 import ProdInfo_pb2_grpc
