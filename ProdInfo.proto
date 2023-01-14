@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package productInfo;
+
+// The Information service definition.
+service Info {
+	// Both Streaming
+	rpc MultipleInfo (stream InfoRequest) returns (stream InfoReply);
+}
+
+// The request message containing the product's name.
+message InfoRequest {
+  string name = 1;
+}
+
+// The response message containing the information about product.
+message InfoReply {
+  string res_name = 1;
+	int32 price = 2;
+	string company = 3;
+	string made_in = 4;
+
+}

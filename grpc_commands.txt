@@ -1,0 +1,13 @@
+
+Command used to generate code in grpc:
+
+$ python -m grpc_tools.protoc -I="." --python_out="." --pyi_out="." --grpc_python_out="."  ./ProdInfo.proto
+
+Meaning of the command:
+1. python -m grpc_tools.protoc : the command from grpc-tool library
+2. -I="."  : taking path of the dependency file ie. proto file, "." meaning current path.
+3. --python_out="."  : at the current path name_pb2.py file will be created and stored
+4. --pyi_out="."  : at the current path name_pb2.pyi file will be created and stored, this file is basically
+                    interpretaion file of name_pb2.py file.
+5. --grpc_python_out="."  :  at the current path name_pb2_grpc.py file will be created and stored
+6. ./ProdInfo.proto : taking proto file from current directory.
