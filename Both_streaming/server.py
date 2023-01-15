@@ -1,4 +1,4 @@
-# crating server file here
+# Defining streaming server file here.
 import random
 from concurrent import futures
 
@@ -13,12 +13,16 @@ class InfoServicer(ProdInfo_pb2_grpc.InfoServicer):
         for request in request_interator:
             print(request)
 
+            error_message = "This is the error."
+            context.set_details(error_message)
+            context.set_code(grpc.StatusCode)
+
             # Here we are taking random information about the product & sending it to client.
-            product_name = request.name
             possible_price_range = range(100, 500)
             possible_name_companies = ["Parle-G", "MRF", "Lenovo", "Micromax"]
             possible_name_country = ["India", "Russia", "Bhutan", "France"]
 
+            product_name = request.name
             product_price = random.choice(possible_price_range)
             product_company = random.choice(possible_name_companies)
             product_country = random.choice(possible_name_country)
