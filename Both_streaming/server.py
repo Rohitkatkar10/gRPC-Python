@@ -13,7 +13,7 @@ class InfoServicer(ProdInfo_pb2_grpc.InfoServicer):
         for request in request_interator:
             print(request)
 
-            error_message = "This is the error."
+            error_message = "Invalid input, please enter valid input."
             context.set_details(error_message)
             context.set_code(grpc.StatusCode)
 
