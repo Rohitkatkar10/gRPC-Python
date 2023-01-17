@@ -38,7 +38,7 @@ def serve():
     port = "50051"
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     # this server can establish connection with 10 clients.
-    ProdInfo_pb2_grpc.add_InfoServicer_to_server(InfoServicer, server)
+    ProdInfo_pb2_grpc.add_InfoServicer_to_server(InfoServicer(), server)
     server.add_insecure_port("localhost:" + port)
     print(f"The server is up and running on port {port}.")
     server.start()
