@@ -11,7 +11,7 @@ class InfoServicer(ProdInfo_pb2_grpc.InfoServicer):
 
     def MultipleInfo(self, request_interator, context):
         for request in request_interator:
-            print(request)
+            print("Name of the product:", request)
             # Setting error message.
             error_message = "Invalid input, please enter valid input."
             context.set_details(error_message)
