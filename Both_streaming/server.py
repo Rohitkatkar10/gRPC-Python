@@ -12,7 +12,7 @@ class InfoServicer(ProdInfo_pb2_grpc.InfoServicer):
     def MultipleInfo(self, request_interator, context):
         for request in request_interator:
             print(request)
-
+            # Setting error message.
             error_message = "Invalid input, please enter valid input."
             context.set_details(error_message)
             context.set_code(grpc.StatusCode)
@@ -34,9 +34,10 @@ class InfoServicer(ProdInfo_pb2_grpc.InfoServicer):
             yield response
 
 
+# Defining server here.
 def serve():
     port = "50051"
-    server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
+    server = grpc.server(futures.ThreadPoolExecutor(max_workers=100))
     # this server can establish connection with 10 clients.
     ProdInfo_pb2_grpc.add_InfoServicer_to_server(InfoServicer(), server)
     server.add_insecure_port("localhost:" + port)
