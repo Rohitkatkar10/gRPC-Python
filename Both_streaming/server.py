@@ -19,7 +19,7 @@ class InfoServicer(ProdInfo_pb2_grpc.InfoServicer):
 
             # Here we are taking random information about the product & sending it to client.
             possible_price_range = range(100, 500)
-            possible_name_companies = ["Parle-G", "MRF", "Lenovo", "Micromax"]
+            possible_name_companies = ["Parle-G", "MRF", "Lenovo", "Micro max"]
             possible_name_country = ["India", "Russia", "Bhutan", "France"]
 
             product_name = request.name
